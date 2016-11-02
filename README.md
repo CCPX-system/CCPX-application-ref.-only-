@@ -21,7 +21,7 @@ README [English](files://README.md) | [中文](files://README-zh.md)
 1. git clone from github.com:  
 
     /*
-    git clone https://github.com/BIT-Agile-Group/BitBlockChain.git 
+    git clone https://github.com/CCPX-system/CCPX-application.git 
     */
 2. import into myeclipse
 4. configure parameter
