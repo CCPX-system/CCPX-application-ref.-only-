@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 
 /**
  * @author KEN
- *
+ 
  */
 public class SellerBaseController  {
 	 protected Logger logger = Logger.getLogger(getClass());

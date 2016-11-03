@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-7 21:46:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="model.activation_code" table="activation_code">
+  <id name="Activation_Code" type="java.lang.String"/>
+  <property name="Seller_id" type="int">
+   <column name="Seller_id"/>
+  </property>
+ </class>
+</hibernate-mapping>

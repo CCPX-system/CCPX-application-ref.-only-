@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-7 21:46:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="model.industry_type" table="industry_type">
+  <id length="11" name="Industry_id" type="int"/>
+  <property name="Industry_Name" type="java.lang.String">
+   <column name="Industry_Name"/>
+  </property>
+  <property name="IndustryType_Logo" type="java.lang.String">
+   <column name="IndustryType_Logo"/>
+  </property>
+ </class>
+</hibernate-mapping>
