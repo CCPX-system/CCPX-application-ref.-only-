@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<web-app   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns="http://java.sun.com/xml/ns/javaee"   
+    xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"  
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"  
+    id="WebApp_ID"   
+    version="3.0">  
+    <context-param>  
+        <param-name>contextConfigLocation</param-name>  
+        <!-- 应用上下文配置文件 -->  
+        <param-value>/WEB-INF/spring-servlet.xml</param-value>  
+    </context-param>  
+    <!-- spring 监听器配置 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+    <!--spring 防内存溢出监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <!-- spring mvc servlet配置文件 -->
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- 配置要拦截的URL -->
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>            
