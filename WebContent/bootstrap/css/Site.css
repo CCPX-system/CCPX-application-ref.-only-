@@ -1,0 +1,10 @@
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
+.errorValidation{
+	color:red;
+	font-size:10px;
+}
