@@ -81,9 +81,8 @@
 		
 		
 <!-- ********************************* ^ here ^ ********************************* -->		
-		
-		
-		<form class="form-horizontal">
+	
+		<form class="form-horizontal" action="" method="post">
 		<fieldset>
 		
 			<!-- ID input-->
@@ -91,26 +90,7 @@
 				<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="ID"> ID
 				</label>  
 				<div class="col-md-2 col-sm-4 col-xs-6">
-					<script>
-					function $_GET(param) {
-						var vars = {};
-						window.location.href.replace( location.hash, '' ).replace( 
-							/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-							function( m, key, value ) { // callback
-								vars[key] = value !== undefined ? value : '';
-							}
-						);
-
-						if ( param ) {
-							return vars[param] ? vars[param] : null;	
-						}
-						return vars;
-					}
-					</script>
 					<input id="ID" name="ID" type="text" placeholder="enter your ID" class="form-control input-sm">
-					<script>
-					document.getElementById('ID').value= $_GET('ID');
-					</script>
 				</div>
 			</div>
 
