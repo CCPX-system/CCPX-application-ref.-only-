@@ -32,7 +32,9 @@ public class SellerTranserServiceImp implements SellerTranserService {
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
             httpConn.setDoOutput(true); // 使用 URL 连接进行输出
             httpConn.setDoInput(true); // 使用 URL 连接进行输入
+            httpConn.setInstanceFollowRedirects(true);
             httpConn.setUseCaches(false); // 忽略缓存
+            httpConn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
             httpConn.setRequestMethod("POST"); // 设置URL请求方法
             OutputStream outputStream = httpConn.getOutputStream();
             outputStream.write(content.getBytes("UTF-8"));
@@ -55,18 +57,18 @@ public class SellerTranserServiceImp implements SellerTranserService {
 	
 	//单元测试 是否成功连接
 	 public static void main(String[] args) {
-	        String str=connect("ken", "789", 2, 4);
+	        String str=connect("kens", "789", "1", "4");
 	       SellerStatusInfo info=JSON.parseObject(str,SellerStatusInfo.class);
 	       
 	        System.out.println(info.toString());
 	    }
 
-	    private static String connect(String param1,String param2,int param3,int param4){
+	    private static String connect(String param1,String param2,String param3,String param4){
 	        StringBuilder param=new StringBuilder();
 	        param.append("name="+param1+"&");
 	        param.append("password="+param2+"&");
 	        param.append("trade_type="+param3+"&");
-	        param.append("seller_id="+param3);
+	        param.append("seller_id="+param4);
 	      
 	        return getResponse(URL,param.toString());
 	    }
