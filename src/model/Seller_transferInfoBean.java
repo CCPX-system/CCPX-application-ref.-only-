@@ -12,9 +12,9 @@ public class Seller_transferInfoBean {
 
 	private String name;
 	private String password;
-	private int trade_type;
+	private String trade_type;
 	private int points;
-	private int seller_id;
+	private String seller_id;
 	public String getName() {
 		return name;
 	}
@@ -27,22 +27,24 @@ public class Seller_transferInfoBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getTrade_type() {
-		return trade_type;
-	}
-	public void setTrade_type(int trade_type) {
-		this.trade_type = trade_type;
-	}
+	
 	public int getPoints() {
 		return points;
 	}
 	public void setPoints(int points) {
 		this.points = points;
 	}
-	public int getSeller_id() {
+	
+	public String getTrade_type() {
+		return trade_type;
+	}
+	public void setTrade_type(String trade_type) {
+		this.trade_type = trade_type;
+	}
+	public String getSeller_id() {
 		return seller_id;
 	}
-	public void setSeller_id(int seller_id) {
+	public void setSeller_id(String seller_id) {
 		this.seller_id = seller_id;
 	}
 	@Override
