@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-1-7 21:46:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="model.Request" table="request">
+  <id length="11" name="R_ID" type="int">
+  <property name="requestID" type="int">
+  <column name="R_ID"/> 
+  </property>
+  </id>
+  <property name="userIdFrom" type="int">
+   <column name="U_ID_FROM"/>
+  </property>
+  <property name="userIdTo" type="int">
+   <column name="U_ID_TO"/>
+  </property>
+  <property name="sellerIdFrom" type="int">
+   <column name="SELLER_ID_FROM"/>
+  </property>
+  <property name="sellerIdTo" type="int">
+   <column name="SELLER_ID_TO"/>
+  </property>
+  <property name="pointsFrom" type="int">
+   <column name="POINTS_FROM"/>
+  </property>
+  <property name="pointsTo" type="int">
+   <column name="POINTS_TO"/>
+  </property>
+  <property name="offerID" type="int">
+   <column name="OFFER_ID"/>
+  </property>
+  <property name="status" type="int">
+   <column name="STATUS"/>
+ </property>
+ <property name="updateTime" type="date">
+   <column name="UPDATE_TIME"/>
+ </property>
+ </class>
+</hibernate-mapping>
