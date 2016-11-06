@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd">
+
+
+
+     <!-- 本地配置    -->
+     
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <property name="user" value="temp_user_functi"></property>
+    <property name="password" value="qwerty65536"></property>
+    <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+    <property name="jdbcUrl" value="jdbc:mysql://115.159.79.139:3306/temp_user_functi?useUnicode=true&amp;characterEncoding=utf-8"></property>
+    <property name="initialPoolSize" value="5"></property>
+    <property name="maxPoolSize" value="20"></property>
+    </bean>
+ 
+<!-- 配置sessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+      <!-- 配置数据源 -->
+    <property name="dataSource" ref="dataSource"></property>
+    <!-- 配置 hibernate.cfg.xml-->
+    <property name="configLocation" value="classpath:config/hibernate.cfg.xml"></property>
+    <!-- 配置 hibernate.hbm.xml -->
+    <property name="mappingLocations" value="classpath:model/*.hbm.xml"></property>
+    </bean>
+
+<!-- 配置事务管理transactionManager -->
+   <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+       <property name="sessionFactory" ref="sessionFactory"></property>
+   </bean>
+
+
+
+
+</beans>
