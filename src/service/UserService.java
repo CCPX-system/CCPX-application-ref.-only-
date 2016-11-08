@@ -6,10 +6,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javassist.expr.NewArray;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpServletResponse;
 
 import model.User;
+import model.Response;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -25,32 +28,59 @@ import utils.MD5Util;
 @Controller  
 @RequestMapping(value ="/user")
 public class UserService {  
+	
+	public void check_token(int u_id,String u_token,HttpServletResponse response) throws IOException,SQLException{
+		UserDaoImpl impl = new UserDaoImpl();
+		if(!impl.token_auth(u_id, u_token)){
+			response.setCharacterEncoding("UTF-8"); 
+	        response.setContentType("text/json");
+			PrintWriter out = response.getWriter();
+			Response rs = new Response(1,"authorization failed",new Object());
+			JSONObject json = JSONObject.fromObject( rs );
+            out.print(json);
+            out.close();
+            response.sendError(401);
+		}
+	}
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)  
     @ResponseBody
     public void register(HttpServletRequest request,HttpServletResponse response) throws IOException, SQLException{
         response.setCharacterEncoding("UTF-8"); 
         response.setContentType("text/json");
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
-        String fullname = request.getParameter("fullname");
-        String email = request.getParameter("email");
-        String wechat = request.getParameter("wechat");
+        String name = request.getParameter("u_name");
+        String password = request.getParameter("u_pw_hash");
+        String fullname = request.getParameter("u_fullname");
+        String email = request.getParameter("u_email");
+        String wechat = request.getParameter("u_wechat_id");
         User user = new User();
-        user.setId(UserCommonUtil.getcount()+1);
+        //user.setId(UserCommonUtil.getcount()+1);
         user.setName(name);
         user.setEmail(email);
-        user.setPassword(MD5Util.MD5(password));
+        user.setPassword(password);
         user.setFullname(fullname);
         user.setWechatid(wechat);
         user.setToken(MD5Util.MD5(name+password));
         UserDaoImpl impl = new UserDaoImpl();
-        impl.add(user);
-    	PrintWriter out = response.getWriter();
-        String message = "{'message':'success'}";  
-        JSONObject json = JSONObject.fromObject( message );
-         out.print(json);
-         out.close();
+        String status = impl.add(user);
+        PrintWriter out = response.getWriter();
+        
+        if (status == "ok") {
+        	user = impl.findByName(name);
+        	Response rs = new Response(0,"",user);
+        	JSONObject json = JSONObject.fromObject( rs );
+            out.print(json);
+		}else if (status == "error") {
+			Response rs = new Response(5,"username repeated",new Object());
+			JSONObject json = JSONObject.fromObject( rs );
+	        out.print(json);
+		}else{
+			Response rs = new Response(6,"internal server error",new Object());
+			JSONObject json = JSONObject.fromObject( rs );
+	        out.print(json);
+		}
+        out.close();
+       
     }
     
     @RequestMapping(value = "/login", method = RequestMethod.POST)  
@@ -59,25 +89,27 @@ public class UserService {
     	response.setCharacterEncoding("UTF-8"); 
         response.setContentType("text/json");
         PrintWriter out = response.getWriter();
-    	String name = request.getParameter("name");
-    	String password = request.getParameter("password");
+    	String name = request.getParameter("u_name");
+    	String password = request.getParameter("u_pw_hash");
     	UserDaoImpl impl = new UserDaoImpl();
-    	int flag = impl.checklogin(name, MD5Util.MD5(password));
-    	String message = null;
+    	int flag = impl.checklogin(name, password);
     	if(flag==0){
-    		message = "{'message':'username or password is not correct'}";
-    		JSONObject json = JSONObject.fromObject( message );
+    		Response rs = new Response(5,"username or password is not correct",new Object());
+    		JSONObject json = JSONObject.fromObject( rs );
     		out.print(json);
-    		out.close();
-    		return;
+    		
     	}
     	else {
     		User user = impl.findById(flag);
-    		JSONObject json = JSONObject.fromObject(user);
+    		Response rs = new Response(0,"",user);
+    		JSONObject json = JSONObject.fromObject(rs);
     		out.print(json);
-    		out.close();
     	}
+    	
+    	out.close();
+		return;
     }
+    
     @RequestMapping(value = "/modify", method = RequestMethod.POST)  
     @ResponseBody
     public void modify(HttpServletRequest request,HttpServletResponse response) throws IOException, SQLException{
@@ -99,19 +131,20 @@ public class UserService {
     	PrintWriter out = response.getWriter();
         String message = "{'message':'success'}";  
         JSONObject json = JSONObject.fromObject( message );
-         out.print(json);
-         out.close();
+        out.print(json);
+        out.close();
     }
+    
     @RequestMapping(value = "/test", method = RequestMethod.GET)  
     @ResponseBody
     public void test(HttpServletResponse response) throws IOException{
     	 response.setCharacterEncoding("UTF-8"); 
          response.setContentType("text/json");
          PrintWriter out = response.getWriter();
-         String message = "{'message':'success'}";  
-         JSONObject json = JSONObject.fromObject( message );
-          out.print(json);
-          out.close();
+         Response rs = new Response(0,"test ok",new Object());
+         JSONObject json = JSONObject.fromObject( rs );
+         out.print(json.toString());
+         out.close();
     }
   
 }  

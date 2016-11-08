@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.print.DocFlavor.STRING;
+
+import com.alibaba.fastjson.parser.ParseContext;
+
 import model.User;
 import utils.JdbcUtils_C3P0;
 import dao.UserDao;
@@ -16,28 +20,35 @@ import dao.UserDao;
 public class UserDaoImpl implements UserDao{
 
 	@Override
-	public void add(User user) throws SQLException {
+	/*
+	 * @return "ok" for ok,
+	 * @return "error" for error
+	 * */
+	public String add(User user) throws SQLException {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		
 		
-		String sql = "insert into user(u_id,u_wechat_id,u_name,u_email_address,u_pw_hash,u_full_name,u_token)"
-				+ "values(?,?,?,?,?,?,?)";
+		String sql = "insert into user(u_wechat_id,u_name,u_email_address,u_pw_hash,u_full_name,u_token)"
+				+ "values(?,?,?,?,?,?)";
 		try {
 			conn = JdbcUtils_C3P0.getConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, user.getId());
-			ps.setString(2, user.getWechatid());
-			ps.setString(3, user.getName());
-			ps.setString(4, user.getEmail());
-			ps.setString(5, user.getPassword());
-			ps.setString(6, user.getFullname());
-			ps.setString(7, user.getToken());
+			//ps.setInt(1, user.getId());
+			ps.setString(1, user.getWechatid());
+			ps.setString(2, user.getName());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getPassword());
+			ps.setString(5, user.getFullname());
+			ps.setString(6, user.getToken());
 			ps.executeUpdate();
+			return "ok";
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new SQLException("用户注册失败");
+			return "error";
+			//throw new SQLException("用户注册失败");
+			
 		} finally {
 			JdbcUtils_C3P0.release(conn, ps, null);
 		}
@@ -93,7 +104,7 @@ public class UserDaoImpl implements UserDao{
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		User user = null;
-		String sql = "select u_wechat_id,u_name,u_email_address,u_pw_hash,u_full_name,u_token from user where u_id=?";
+		String sql = "select u_wechat_id,u_name,u_email_address,u_full_name,u_token from user where u_id=?";
 		try {
 			conn = JdbcUtils_C3P0.getConnection();
 			ps = conn.prepareStatement(sql);
@@ -105,7 +116,38 @@ public class UserDaoImpl implements UserDao{
 				user.setWechatid(rs.getString(1));
 				user.setName(rs.getString(2));
 				user.setEmail(rs.getString(3));
-				user.setPassword(rs.getString(4));
+				//user.setPassword(rs.getString(4));
+				user.setFullname(rs.getString(4));
+				user.setToken(rs.getString(5));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new SQLException("获取用户信息失败");
+		} finally {
+			JdbcUtils_C3P0.release(conn, ps, null);
+		}
+		return user;
+	}
+	
+	public User findByName(String name) throws SQLException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		User user = null;
+		String sql = "select u_id,u_wechat_id,u_name,u_email_address,u_full_name,u_token from user where u_name=?";
+		try {
+			conn = JdbcUtils_C3P0.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			rs = ps.executeQuery();
+			while(rs.next()){
+			    user = new User();
+				user.setId(rs.getInt(1));
+				user.setWechatid(rs.getString(2));
+				user.setName(rs.getString(3));
+				user.setEmail(rs.getString(4));
+//				user.setPassword(rs.getString(4));
 				user.setFullname(rs.getString(5));
 				user.setToken(rs.getString(6));
 			}
@@ -196,6 +238,35 @@ public class UserDaoImpl implements UserDao{
 			JdbcUtils_C3P0.release(conn, ps, rs);
 		}
 		return id;
+	}
+	
+	@Override
+	public boolean token_auth(int u_id,String u_token) throws SQLException{
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		int id = -1;
+		String sql = "select u_id from user where u_id=? and u_token=?";
+		try {
+			conn = JdbcUtils_C3P0.getConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, u_id);
+			ps.setString(2, u_token);
+			rs = ps.executeQuery();
+			if(rs.next()){
+			BigDecimal lastIdBd = rs.getBigDecimal(1);
+		    id = lastIdBd.intValue();}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new SQLException("验证错误");
+		} finally {
+			JdbcUtils_C3P0.release(conn, ps, rs);
+		}
+		if(id != -1){
+			return true;
+		}
+		return false;
 	}
 
 	
