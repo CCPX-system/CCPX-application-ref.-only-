@@ -10,6 +10,7 @@
 
 	<!-- 配置注解扫描包 -->
 	<context:component-scan base-package="controller"></context:component-scan>
+		<context:component-scan base-package="service"></context:component-scan>
 
 	<!-- 开启注解 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
