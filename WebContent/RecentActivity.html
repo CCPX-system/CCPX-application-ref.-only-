@@ -23,7 +23,7 @@
 			<div class="header">
 
 				<!-- Form Name -->
-				<legend>Offers Streaming</legend>
+				<legend>Recent Activity</legend>
 			
 				<!-- Navbar --> 
 				<nav class="navbar navbar-default" style="background-image: url('img/blue.png'); background-position : 10% 10%;" role="navigation">
@@ -83,47 +83,57 @@
 				</div>
        </div>
        
-          <!--select company-->
-              <br>
-              <div class="row clearfix">
-                <div class="col-md-12 col-md-12 col-xs-12 column">
-                       <div class="col-md-2 col-sm-1 col-xs-0">
-                       </div>
-                       <div class="col-md-3 col-sm-4 col-xs-5">
-                           <form>
-                           <div class="form-group">
-                                  <label class="col-md-4 control-label" for="selectbasic"></label>
-                                  <select id="selectbasic" name="selectbasic" class="form-control">
-                                      <option value="1">select company</option>
-                                      <option value="2">company 1</option>
-                                      <option value="3">company 2</option>
-                                   </select>
-                           </div>
-                           </form>
-                        </div>
-                        <div class="col-md-1 col-sm-1 col-xs-0">
-                        </div>
-                        <div class="col-md-1 col-sm-2 col-xs-2">
-                        <br>
-                        <span class="glyphicon glyphicon-circle-arrow-right center-block"></span>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-5">
-                            <form>
-                            <div class="form-group">
-                                  <label class="col-md-4 control-label" for="selectbasic1"></label>
-                                  <select id="selectbasic1" name="selectbasic1" class="form-control">
-                                      <option value="1">select company</option>
-                                      <option value="2">company 1</option>
-                                      <option value="3">company 2</option>
-                                  </select>
-                             </div>
-                             </form>
-                         </div>
-                        <div class="col-md-2 col-sm-0 col-xs-0">
-                        </div>
-                 </div>
-              </div>
-              
+        <!--sort-->
+        <br>
+        <br>
+        <div class="container-fluid">
+        <div class="row clearfix" style="background-color:#CCF">
+		<div class="col-md-12 column">
+            <div class="col-md-2 col-sm-1">
+            </div>
+            <div class="col-md-2 col-sm-2" style="margin-top:10px;">
+            <p class="text-center text-info">
+				 <em style="color:#C0C">Sort by</em> 
+			</p>
+            </div>
+            <div class="col-md-2 col-sm-3" style="margin-top:10px;">
+            <i class="glyphicon glyphicon-sort"></i>
+            <a href="#"> Best Rate</a>
+            </div>
+            <div class="col-md-2 col-sm-3" style="margin-top:10px;">
+            <i class="glyphicon glyphicon-sort-by-order-alt"></i>
+            <a href="#"> Expiry Date</a>
+            </div>
+            <div class="col-md-2 col-sm-3" style="margin-top:10px;">
+            <i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
+            <a href="#"> More Recent</a>
+            </div>
+			<div class="col-md-2 col-sm-0">
+            </div>
+		</div>
+	    </div> 
+        </div>
+            
+        <!--view-->
+        <div class="container-fluid">
+        <div class="row clearfix"  style="background-color:#ECECEC;">
+        <div class="col-md-12">
+            <br>
+            <div class="col-md-2 col-sm-0">
+            </div>
+            <div class="col-md-3 col-sm-4">
+            <a href="ExchangesFound.html"><button style="margin-bottom:10px;" type="button" class="btn btn-primary btn-default">View Recommendations</button></a>
+            </div>
+            <div class="col-md-3 col-sm-4">
+            <p> Average Exchange Rate: %</p>
+            </div>
+            <div class="col-md-3 col-sm-4">
+            <a href="ExchangeRatePage.html"><button style="margin-bottom:10px;" type="button" class="btn btn-primary btn-default">View Rate Evolution</button></a>
+            </div>
+		</div>
+	    </div>
+        </div>
+ 
         <!--stream-->
         <br>
         <br>
@@ -133,8 +143,6 @@
 			<table class="table table-hover table-striped">
 				<tbody>
 					<tr>
-                        <td class="col-md-1">
-                        </td>
 						<td class="col-md-2">
                             <img class="img-rounded" src="img/blue.png" width="50" height="50" />
 							<b>100</b>  
@@ -144,120 +152,141 @@
                            <br>
                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
                         </td>
-						<td class="col-md-2">
+						<td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
                             <img class="img-rounded" src="img/blue.png" width="50" height="50" />
 							<b>50</b>  
                             pts
 						</td>
-						<td class="col-md-3">
+						<td class="col-md-2">
 							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
                             <a href="#">user nickname</a>
 						</td>
-						<td class="col-md-2">
-							Expiry Timer
-						</td>
-                        <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
-					    </td>
-                    </tr>
-					<tr class="success">
-						<td class="col-md-1">
-                        </td>
-						<td class="col-md-2">
-                            <img class="img-rounded" src="img/blue.png" width="50" height="50" />
-							<b>200</b>  
-                            pts
-                        </td>
                         <td class="col-md-1">
                            <br>
                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
                         </td>
+                        <td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
+							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
+                            <a href="#">user nickname</a>
+						</td>
+						<td class="col-md-2">
+							...min ago
+						</td>
+                    </tr>
+					<tr class="success">
 						<td class="col-md-2">
                             <img class="img-rounded" src="img/blue.png" width="50" height="50" />
 							<b>100</b>  
                             pts
+                        </td>
+                        <td class="col-md-1">
+                           <br>
+                           <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </td>
+						<td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
+                            <img class="img-rounded" src="img/blue.png" width="50" height="50" />
+							<b>50</b>  
+                            pts
 						</td>
-						<td class="col-md-3">
+						<td class="col-md-2">
+							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
+                            <a href="#">user nickname</a>
+						</td>
+                        <td class="col-md-1">
+                           <br>
+                           <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </td>
+                        <td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
 							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
                             <a href="#">user nickname</a>
 						</td>
 						<td class="col-md-2">
-							Expiry Timer
+							...min ago
 						</td>
-                        <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
-					    </td>
 					</tr>
-					<tr class="error">
-						<td class="col-md-1">
-                        </td>
+					<tr class="warning">
 						<td class="col-md-2">
                             <img class="img-rounded" src="img/blue.png" width="50" height="50" />
-							<b>10</b>  
+							<b>100</b>  
                             pts
                         </td>
                         <td class="col-md-1">
                            <br>
                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
                         </td>
-						<td class="col-md-2">
+						<td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
                             <img class="img-rounded" src="img/blue.png" width="50" height="50" />
-							<b>500</b>  
+							<b>50</b>  
                             pts
 						</td>
-						<td class="col-md-3">
+  						<td class="col-md-2">
+							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
+                            <a href="#">user nickname</a>
+						</td>
+                        <td class="col-md-1">
+                           <br>
+                           <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </td>
+                        <td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
 							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
                             <a href="#">user nickname</a>
 						</td>
 						<td class="col-md-2">
-							Expiry Timer
+							...min ago
 						</td>
-                        <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
-					    </td>
 					</tr>
 					<tr class="info">
-						<td class="col-md-1">
-                        </td>
 						<td class="col-md-2">
                             <img class="img-rounded" src="img/blue.png" width="50" height="50" />
-							<b>80</b>  
+							<b>100</b>  
                             pts
                         </td>
                         <td class="col-md-1">
                            <br>
                            <i class="glyphicon glyphicon-circle-arrow-right"></i>
                         </td>
-						<td class="col-md-2">
+						<td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
                             <img class="img-rounded" src="img/blue.png" width="50" height="50" />
-							<b>30</b>  
+							<b>50</b>  
                             pts
 						</td>
-						<td class="col-md-3">
+						<td class="col-md-2">
+							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
+                            <a href="#">user nickname</a>
+						</td>
+                        <td class="col-md-1">
+                           <br>
+                           <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                        </td>
+                        <td class="col-md-2" style="border-right:1px dotted #CCCCCC;">
 							<img class="img-circle" src="img/bonus.png" width="50" height="50" />
                             <a href="#">user nickname</a>
 						</td>
 						<td class="col-md-2">
-							Expiry Timer
+							...min ago
 						</td>
-                        <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
-					    </td>
 					</tr>
 				</tbody>
 			</table>
-        </div>
-                       
+            </div>
+            <br>
+            
+       <!--button-->     
+            <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="col-md-6 col-sm-4 col-xs-4">
+                </div>
+                <div class="col-md-1 col-sm-2 col-xs-3">
+                <a href="ExchangesFound.html"><button type="button" class="btn btn-default btn-info">Back</button></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-3">
+                <a href="Makeoffer.html"><button type="button" class="btn btn-default btn-info">Make a New Offer</button></a>            
+                </div>
+            </div>
+            </div>
+            
 		</div>
 	    </div>
-        
-        <!--button-->
-        <br>
-        <div class="row center-block" style="width:100px;">
-        <a href="ExchangeCenter.html"><button type="button" class="btn btn-default btn-info">Back</button></a>
-        </div>
-       
-        </div>
  
  
             

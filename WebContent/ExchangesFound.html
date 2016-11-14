@@ -53,7 +53,7 @@
 								</li>
 								
 								 <li class="nav-item pull-left">
-								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-yen"></span> My Points </a>
+								  <a class="nav-link" href="MyPointsPage.html"><span class="glyphicon glyphicon-yen"></span> My Points </a>
 								</li>
 								
 								<li class="nav-item pull-left">
@@ -61,7 +61,7 @@
 								</li>	
                                 
                                 <li class="nav-item pull-left">
-								<a class="nav-link" href="#"><span class="glyphicon glyphicon-transfer"></span><U> Exchange Center </U></a>
+								<a class="nav-link" href="ExchangeCenter.html"><span class="glyphicon glyphicon-transfer"></span><U> Exchange Center </U></a>
                                   
 								</li>	
                                 
@@ -86,48 +86,49 @@
         <!--sort-->
         <br>
         <br>
-        <div class="row clearfix">
+        <div class="container-fluid">
+        <div class="row clearfix" style="background-color:#CCF">
 		<div class="col-md-12 column">
             <div class="col-md-2 col-sm-1">
             </div>
-            <div class="col-md-2 col-sm-2">
+            <div class="col-md-2 col-sm-2" style="margin-top:10px;">
             <p class="text-center text-info">
-				 <em>Sort by</em> 
+				 <em style="color:#C0C">Sort by</em> 
 			</p>
             </div>
-            <div class="col-md-2 col-sm-2">
+            <div class="col-md-2 col-sm-3" style="margin-top:10px;">
             <i class="glyphicon glyphicon-sort"></i>
             <a href="#"> Best Rate</a>
             </div>
-            <div class="col-md-2 col-sm-2">
+            <div class="col-md-2 col-sm-3" style="margin-top:10px;">
             <i class="glyphicon glyphicon-sort-by-order-alt"></i>
             <a href="#"> Expiry Date</a>
             </div>
-            <div class="col-md-2 col-sm-3">
+            <div class="col-md-2 col-sm-3" style="margin-top:10px;">
             <i class="glyphicon glyphicon-sort-by-attributes-alt"></i>
             <a href="#"> More Recent</a>
             </div>
-			<div class="col-md-2 col-sm-2">
+			<div class="col-md-2 col-sm-0">
             </div>
 		</div>
 	    </div> 
+        </div>
             
         <!--view-->
-        <div class="container-fluid">
+       <div class="container-fluid">
         <div class="row clearfix"  style="background-color:#ECECEC;">
-		<div class="col-md-12">
+        <div class="col-md-12">
             <br>
-            <div class="col-md-2 col-sm-1">
+            <div class="col-md-2 col-sm-0">
             </div>
-            <div class="col-md-3 col-sm-3">
-            <button type="button" class="btn btn-primary btn-default">View Recent Activity</button>
+            <div class="col-md-3 col-sm-4">
+            <a href="RecentActivity.html"><button style="margin-bottom:10px;" type="button" class="btn btn-primary btn-default">View Recent Activity</button></a>
             </div>
             <div class="col-md-3 col-sm-4">
             <p> Average Exchange Rate: %</p>
-            <br>
             </div>
-            <div class="col-md-2 col-sm-3">
-            <button type="button" class="btn btn-primary btn-default">View Rate Evolution</button>
+            <div class="col-md-3 col-sm-4">
+            <a href="ExchangeRatePage.html"><button style="margin-bottom:10px;" type="button" class="btn btn-primary btn-default">View Rate Evolution</button></a>
             </div>
 		</div>
 	    </div>
@@ -138,6 +139,7 @@
         <br>
         <div class="row clearfix">
 		<div class="col-md-12 column">
+        <div class="table-responsive">
 			<table class="table table-hover table-striped">
 				<tbody>
 					<tr>
@@ -165,7 +167,7 @@
 							Expiry Timer
 						</td>
                         <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger">Add</button>
+                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
 					    </td>
                     </tr>
 					<tr class="success">
@@ -193,10 +195,10 @@
 							Expiry Timer
 						</td>
                         <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger">Add</button>
+                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
 					    </td>
 					</tr>
-					<tr class="error">
+					<tr class="warning">
 						<td class="col-md-1">
                         </td>
 						<td class="col-md-2">
@@ -221,7 +223,7 @@
 							Expiry Timer
 						</td>
                         <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger">Add</button>
+                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
 					    </td>
 					</tr>
 					<tr class="info">
@@ -249,11 +251,12 @@
 							Expiry Timer
 						</td>
                         <td class="col-md-1">
-                        <button type="button" class="btn btn-info btn-danger">Add</button>
+                        <button type="button" class="btn btn-info btn-danger"><i class="glyphicon glyphicon-plus" style="color:black;"></i></button>
 					    </td>
 					</tr>
 				</tbody>
 			</table>
+            </div>
             <br>
             
        <!--button-->     
@@ -262,10 +265,10 @@
                 <div class="col-md-6 col-sm-4 col-xs-4">
                 </div>
                 <div class="col-md-1 col-sm-2 col-xs-3">
-                <button type="button" class="btn btn-default btn-info">Back</button>
+                <a href="Makeoffer.html"><button type="button" class="btn btn-default btn-info">Back</button></a>
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-3">
-                <button type="button" class="btn btn-default btn-info">Make a New Offer</button>            
+                <a href="Makeoffer.html"><button type="button" class="btn btn-default btn-info">Make a New Offer</button></a>            
                 </div>
             </div>
             </div>
