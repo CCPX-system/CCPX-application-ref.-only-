@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Registration In Company</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+		<script src="angularjs/angular.js"></script>
+		<script src="scripts/script.js"></script>
+
+	</head>
+	
+	<body>
+		<div class="container">
+		
+			<div class="header">
+
+				<!-- Form Name -->
+				<legend>Registration In Company</legend>
+			
+				<!-- Navbar --> 
+				<nav class="navbar navbar-default" style="background-image: url('img/blue.png'); background-position : 10% 10%;" role="navigation">
+					<div class="container-fluid">  
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+									data-target="#mynav">
+								<span class="sr-only">change nav</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+					   
+							</button>
+							<a class="navbar-brand" href="#">Exchange Platform</a>
+						</div>
+						<div class="collapse navbar-collapse" id="mynav">
+							<ul class="nav navbar-nav center-block pull-right">
+								<li class="nav-item pull-left">
+								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-home"></span> <U>Home</U></a>
+								</li>
+								
+								<li class="nav-item pull-left">
+								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-user"></span> My Account</a>
+								</li>
+								
+								 <li class="nav-item pull-left">
+								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-yen"></span> My Points</a>
+								</li>
+								
+								<li class="nav-item pull-left">
+								<a class="nav-link" href="#"><span class="glyphicon glyphicon-shopping-cart"></span> List Of Companies</a>
+								</li>	
+                                
+                                <li class="nav-item pull-left">
+								<a class="nav-link" href="#"><span class="glyphicon glyphicon-transfer"></span> Exchange Center</a>
+                                  
+								</li>	
+                                
+                                <li class="nav-item pull-left">
+								<a class="nav-link" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+								</li>															
+							</ul>
+						</div> 
+					</div>
+				</nav>
+			
+				<!-- Website Logo -->
+				<div class="row">
+					<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="Logo"></label>
+					<div class="col-md-2 col-sm-4 col-xs-6">
+						<img class="img-responsive center-block" src="img/logo.png" width="60%" />
+					</div>
+				</div>
+				
+				<!-- message-->
+				<div class="row">
+					<div class="col-md-4 col-sm-3 col-xs-2">
+					</div>
+					<p class="col-md-4 col-sm-6 col-xs-8" id="message">
+					</p>
+				</div>
+			</div>
+		
+		
+<!-- ********************************* ^ here ^ ********************************* -->		
+		
+		
+		<form name="CompanyForm" class="form-horizontal">
+		<fieldset >
+	
+			<!-- Companies Logo -->
+			<div class="row">
+				<label class="col-md-3 col-sm-1 col-xs-1 control-label" for="CompanyLogo"></label>
+				<div class="col-md-2 col-sm-4 col-xs-6">
+						<img class="img-responsive center-block" src="img/CompanyLogo.png" width="80%" />
+				</div>
+					<h3 style="color:#39F; margin-bottom: 20px">Company's Name</h3>
+				<h6>
+					<span style="display:block; text-align:center">Please enter a client ID and a password to</span>
+					<span style="display:block; text-align:center"> create a new account in this company’s system or</span>
+				</h6>
+				<div class="row center-block">
+					<button type="button" class="btn btn-primary center-block" style="margin-bottom: 20px"> Use my account informations</button>
+				</div>
+			</div>
+			<!-- Name input-->		
+			<div class="form-group">
+				<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="Name"> Name*
+				</label>  
+				<div class="col-md-2 col-sm-4 col-xs-6">					
+					<input id="Name" name="Name" type="text" placeholder="enter your Name" class="form-control input-sm" required pattern="[a-zA-Z]+">
+				</div>						
+			</div>
+			<!-- Gender input -->
+			<div class="form-group">
+				<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="Name"> Gender*
+				</label>  
+				<div class="col-md-2 col-sm-4 col-xs-6">
+					<div>
+						<label class="control-label "for="male"> Male</label>
+						<input type="radio" name="gender"id="male" value="male" checked ng-model="selectedGender">
+						<label class="control-label" for="female">Female</label>
+						<input type="radio" name="gender" id="female" value="female" ng-model="selectedGender">
+					</div>
+				</div>
+			</div>
+			<!-- Email input-->
+			<div class="form-group">
+				<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="Email"> Email*
+				</label>  
+				<div class="col-md-2 col-sm-4 col-xs-6">
+					
+					<input id="Email" name="Email" type="email" placeholder="enter your Email" ng-model="email" class="form-control input-sm" required>
+
+				</div>
+			</div>
+			<!-- Password input-->
+			<div class="form-group">
+				<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="userpassword"> Password*
+				</label>
+				<div class="col-md-2 col-sm-4 col-xs-6">
+					<input id="userpassword" name="userpassword" type="password" placeholder="enter your password" ng-model="userpassword" ng-change="validatePassword()" class="form-control input-sm" required>
+				</div>								
+			</div>
+			<!-- Confirm password input-->
+			<div class="form-group">
+				<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="confirmPassword"> Confirm password*
+				</label>
+				<div class="col-md-2 col-sm-4 col-xs-6">
+					<input id="confirmPassword" name="repPassword" type="password" placeholder="confirm your password" ng-model="confirmPassword" ng-change="validatePassword()" class="form-control input-sm" required>
+				</div>								
+			</div>
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="registerbutton">
+				</label>
+				<div class="col-md-2 col-sm-4 col-xs-6">
+					<button ng-disabled="!CompanyForm.$valid " href="#" id="registerbutton" name="registerbutton" ng-click="RegisterUser()" class="btn btn-primary center-block"><span class="glyphicon glyphicon-ok"></span> Submit</button>
+				</div>
+			</div>
+			
+			
+
+		</fieldset>
+		</form>
+		
+		</div>
+	</body>
+  
+</html>
