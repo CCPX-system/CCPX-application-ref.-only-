@@ -17,7 +17,6 @@
         <script src="scripts/jquery.min.js"></script>
 		<script src="bootstrap/js/bootstrap.js"></script>
         <script src="scripts/jquery.datetimepicker.js"></script>
-       
 	</head>
 	
 	<body>
@@ -26,7 +25,7 @@
 			<div class="header">
 
 				<!-- Form Name -->
-				<legend>Transfer Point Page</legend>
+				<legend>Exchange Point Page</legend>
 			
 				<!-- Navbar --> 
 				<nav class="navbar navbar-default" style="background-image: url('img/blue.png'); background-position : 10% 10%;" role="navigation">
@@ -60,11 +59,11 @@
 								</li>
 								
 								<li class="nav-item pull-left">
-								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-transfer"></span><U> Transfert Points</U></a>
+								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-transfer"></span> Transfert Points</a>
 								</li>
 								
 								<li class="nav-item pull-left">
-								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-retweet"></span> Exchange Points</a>
+								  <a class="nav-link" href="#"><span class="glyphicon glyphicon-retweet"></span><U> Exchange Points</U></a>
 								</li>
 								
 								<li class="nav-item pull-left">
@@ -99,16 +98,6 @@
 					</div>
 				</div>
 				
-				<!-- message-->
-				<div class="row">
-					<div class="col-md-4 col-sm-3 col-xs-2">
-					</div>
-					<p class="col-md-4 col-sm-6 col-xs-8" id="message">
-					</p>
-				</div>
-			</div>
-		
-		
 <!-- ********************************* ^ here ^ ********************************* -->
 			
 			<form class="form-horizontal">
@@ -118,7 +107,7 @@
 				<div class="form-group">
 					<label class="col-md-5 col-sm-4 col-xs-3 control-label" for="CompanysName"> According to the time display:
 					</label>  
-					<div class="col-md-2 col-sm-4 col-xs-6">
+					<div class="col-md-3 col-sm-4 col-xs-6">
 						<select class="selectpicker">
 						  <option>A Day</option>
 						  <option>A Month</option>
@@ -159,15 +148,14 @@
 			
 			</fieldset>
 			</form>
-			
-	      <!--income & outcome points-->   
-          <br>
+         
+         <!--total points-->  
+          <br> 
           <div class="row clearfix">
 		  <div class="col-md-2 column">
 		  </div>
 		  <div class="col-md-7 column">
-          <p class="col-md-6 column"><b>Income Points:</b><span></span></p>
-          <p class="col-md-6 column"><b>Outcome Points:</b><span></span></p>
+          <p><b>total points:</b><span></span></p>
           <hr class="col-md-12">
   		  </div>
 		  <div class="col-md-3 column">
@@ -180,59 +168,71 @@
 		  </div>
 		  <div class="col-md-8 col-sm-9 col-xs-9 column">
 			<h4 class="muted">
-				Latest Transfer Records
+				Latest Exchange Records
 			</h4>
 		  </div>
 		  <div class="col-md-3 col-sm-2 col-xs-2 column">
 			 <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-repeat"></i> advanced search</button>
 		  </div>
-	      </div> 
+	      </div>
           
           <div class="row clearfix">
           <div class="col-md-1 column">
 		  </div>
-		  <div class="col-md-10 column"> 
+		  <div class="col-md-10 column">	
 			<div class="table-responsive">
 				<table class="table table-bordered">
 				  <thead class="thead-inverse">
 					<tr>
-					  <th>#</th>
 					  <th>User Name</th>
-					  <th>Type</th>
-					  <th>Points</th>
+                      <th>business of gainning points</th>
+					  <th>gain points</th>
+					  <th>business of losing points</th>
+                      <th>lose points</th>
 					  <th>Timestamp</th>
 					</tr>
 				  </thead>
 				  <tbody>
 					<tr>
-					  <th scope="row">1</th>
-					  <td>Mark</td>
-					  <td>Otto</td>
-					  <td>@mdo</td>
+					  <td>apple</td>
+					  <td>100</td>
+					  <td>200</td>
+					  <td>50</td>
+                      <td>50</td>
 					  <td>XXXXX</td>
 					</tr>
 					<tr>
-					  <th scope="row">2</th>
-					  <td>Jacob</td>
-					  <td>Thornton</td>
-					  <td>@fat</td>
+					  <td>grape</td>
+					  <td>100</td>
+					  <td>300</td>
+					  <td>50</td>
+                      <td>500</td>
 					  <td>XXXXX</td>
 					</tr>
 					<tr>
-					  <th scope="row">3</th>
-					  <td>Larry</td>
-					  <td>the Bird</td>
-					  <td>@twitter</td>
+					  <td>pineapple</td>
+					  <td>100</td>
+					  <td>200</td>
+					  <td>50</td>
+                      <td>50</td>
 					  <td>XXXXX</td>
+					</tr>
+                    <tr>
+					  <td>orange</td>
+					  <td></td>
+					  <td></td>
+					  <td></td>
+                      <td></td>
+					  <td></td>
 					</tr>
 				  </tbody>
 				</table>
 			</div>
-		    </div>
+            </div>
 		    <div class="col-md-1 column">
 		    </div>
 	        </div>
-        
+		
 		</div>
 	</body>
   
